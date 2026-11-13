@@ -1,0 +1,272 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hotel Management System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <h1>🏨 Hotel Management System</h1>
+            <p>Manage rooms, guests, reservations and guest services</p>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Dashboard Statistics -->
+        <section class="stats" id="stats">
+            <!-- Statistics will be loaded by JavaScript -->
+        </section>
+
+        <!-- Navigation -->
+        <nav aria-label="Main navigation">
+            <button type="button" class="tab active" data-view="rooms">
+                Rooms
+            </button>
+
+            <button type="button" class="tab" data-view="guests">
+                Guests
+            </button>
+
+            <button type="button" class="tab" data-view="bookings">
+                Reservations
+            </button>
+        </nav>
+
+        <!-- ROOMS SECTION -->
+        <section id="rooms" class="panel">
+
+            <div class="section-head">
+                <h2>Hotel rooms</h2>
+
+                <input
+                    type="search"
+                    id="search"
+                    placeholder="Search room number or type"
+                    aria-label="Search rooms"
+                >
+            </div>
+
+            <!-- Add Room Form -->
+            <form id="room-form" class="form-grid">
+
+                <input
+                    type="text"
+                    name="room_number"
+                    placeholder="Room number"
+                    required
+                >
+
+                <select name="room_type" required>
+                    <option value="Single">Single</option>
+                    <option value="Double">Double</option>
+                    <option value="Twin">Twin</option>
+                    <option value="Deluxe">Deluxe</option>
+                    <option value="Suite">Suite</option>
+                </select>
+
+                <input
+                    type="number"
+                    name="price_per_night"
+                    min="1"
+                    placeholder="Price per night (RWF)"
+                    required
+                >
+
+                <input
+                    type="number"
+                    name="capacity"
+                    min="1"
+                    placeholder="Capacity"
+                    required
+                >
+
+                <input
+                    type="text"
+                    name="description"
+                    placeholder="Room description"
+                >
+
+                <button type="submit">Add room</button>
+
+            </form>
+
+            <!-- Rooms Table -->
+            <div class="table-wrap">
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Room</th>
+                            <th>Type</th>
+                            <th>Price/night</th>
+                            <th>Capacity</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="room-list">
+                        <!-- Rooms loaded from database -->
+                    </tbody>
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- GUESTS SECTION -->
+        <section id="guests" class="panel hidden">
+
+            <h2>Guest registration</h2>
+
+            <!-- Register Guest Form -->
+            <form id="guest-form" class="form-grid">
+
+                <input
+                    type="text"
+                    name="full_name"
+                    placeholder="Guest full name"
+                    required
+                >
+
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Email address"
+                    required
+                >
+
+                <input
+                    type="tel"
+                    name="phone"
+                    placeholder="Phone number"
+                    required
+                >
+
+                <button type="submit">Register guest</button>
+
+            </form>
+
+            <!-- Guests Table -->
+            <div class="table-wrap">
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="guest-list">
+                        <!-- Guests loaded from database -->
+                    </tbody>
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- RESERVATIONS SECTION -->
+        <section id="bookings" class="panel hidden">
+
+            <h2>Create reservation</h2>
+
+            <!-- Reservation Form -->
+            <form id="booking-form" class="form-grid">
+
+                <select
+                    name="room_id"
+                    id="booking-room"
+                    required
+                >
+                    <option value="">Select available room</option>
+                </select>
+
+                <select
+                    name="guest_id"
+                    id="booking-guest"
+                    required
+                >
+                    <option value="">Select guest</option>
+                </select>
+
+                <label>
+                    Check-in
+
+                    <input
+                        type="date"
+                        name="check_in"
+                        required
+                    >
+                </label>
+
+                <label>
+                    Check-out
+
+                    <input
+                        type="date"
+                        name="check_out"
+                        required
+                    >
+                </label>
+
+                <button type="submit">Create reservation</button>
+
+            </form>
+
+            <h2>Reservation records</h2>
+
+            <!-- Reservations Table -->
+            <div class="table-wrap">
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Room</th>
+                            <th>Guest</th>
+                            <th>Dates</th>
+                            <th>Total (RWF)</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="booking-list">
+                        <!-- Reservations loaded from database -->
+                    </tbody>
+                </table>
+
+            </div>
+
+        </section>
+
+        <!-- Notification Messages -->
+        <p id="notice" role="status" aria-live="polite"></p>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>Hotel Management System · Docker Full-Stack Project</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="app.js"></script>
+
+</body>
+</html>
+ 
