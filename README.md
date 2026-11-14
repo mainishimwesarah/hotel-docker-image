@@ -104,3 +104,5 @@ automatic GitHub push builds, Jenkins also needs a public HTTPS endpoint.
 - Demo room and guest records are inserted automatically on first database initialization.
 Testing automatic Jenkins build
 Testing automatic Jenkins trigger
+
+Testing automatic Jenkins deployment
