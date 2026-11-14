@@ -103,3 +103,4 @@ automatic GitHub push builds, Jenkins also needs a public HTTPS endpoint.
 - This is a classroom/demo project. Before real hotel use, add login and role permissions, stronger validation, payment integration, backups, audit logs and production secret management.
 - Demo room and guest records are inserted automatically on first database initialization.
 Testing automatic Jenkins build
+Testing automatic Jenkins trigger
