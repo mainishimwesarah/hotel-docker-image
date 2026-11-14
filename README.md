@@ -102,3 +102,4 @@ automatic GitHub push builds, Jenkins also needs a public HTTPS endpoint.
 - MySQL initializes `init.sql` only when the database volume is first created. If you need to reinitialize after changing it, run `docker compose down -v` then `docker compose up --build -d`. This deletes existing data.
 - This is a classroom/demo project. Before real hotel use, add login and role permissions, stronger validation, payment integration, backups, audit logs and production secret management.
 - Demo room and guest records are inserted automatically on first database initialization.
+Testing automatic Jenkins build
